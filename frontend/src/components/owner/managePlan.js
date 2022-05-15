@@ -319,6 +319,7 @@ const ManagePlan = () => {
                   position="right"
                   color="primary"
                   onClick={(e) => navigate("/owner/manageplan")}
+                  
                 
                 >
                   Add Plan
