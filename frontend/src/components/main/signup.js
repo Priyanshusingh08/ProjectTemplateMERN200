@@ -34,11 +34,7 @@ const Signup = () => {
           icon: "success",
           title: "Success",
           text: "Registered successfully",
-
-          
         });
-        
-        
       });
   };
 
