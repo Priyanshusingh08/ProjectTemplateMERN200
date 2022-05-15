@@ -1,6 +1,6 @@
 // importing express
 const express = require("express");
-const Model = require("../models/SlotModel");
+const Model = require("../models/OwnerprofileModel");
 // create router
 const router = express.Router();
 router.get("/home", (req, res) => {
@@ -21,6 +21,7 @@ router.post("/add", (req, res) => {
     });
 });
 
+
 router.get("/getall", (req, res) => {
   Model.find({})
     .then((data) => {
@@ -33,17 +34,23 @@ router.get("/getall", (req, res) => {
     });
 });
 
-router.delete("/delete/:id", (req, res) => {
-  Model.findByIdAndDelete(req.params.id)
+router.post("/authenticate", (req, res) => {
+  const formdata = req.body;
+
+  Model.findOne({ email: formdata.email, password: formdata.password })
     .then((data) => {
-      console.log("data saved");
-      res.status(200).json(data);
+      if (data) {
+        console.log("login success");
+        res.status(200).json(data);
+      } else {
+        console.log("login failed");
+        res.status(400).json({ message: "failed" });
+      }
     })
     .catch((err) => {
       console.error(err);
       res.status(500).json(err);
     });
 });
-
 
 module.exports = router;

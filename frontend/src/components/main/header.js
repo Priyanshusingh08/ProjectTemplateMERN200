@@ -24,8 +24,8 @@ import { useEffect, useState } from "react";
 
 const pages = [
   {
-    name: "Browse Vlogs",
-    link: "/list",
+    name: "Browse Slot",
+    link: "/user/browseslot",
   },
 ];
 
@@ -72,12 +72,12 @@ const Header = () => {
     {
       name: "Profile",
       icon: <AccountCircle />,
-      link: "/profile",
+      link: "/user/profile",
     },
     {
       name: "Manage Vlogs",
       icon: <Subscriptions />,
-      link: "/managevlog",
+      link: "/owner/manageplan",
     },
     {
       name: "Logout",
@@ -111,7 +111,7 @@ const Header = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            Pick And Park
+            PickAndPark
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

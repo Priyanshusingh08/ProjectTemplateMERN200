@@ -16,7 +16,7 @@ import { Formik } from "formik";
 import Swal from "sweetalert2";
 import app_config from "../../config";
 
-const demo = () => {
+const Demo = () => {
   const url = app_config.backend_url;
 
   const userForm = {
@@ -162,4 +162,4 @@ const demo = () => {
   );
 };
 
-export default demo;
+export default Demo;
