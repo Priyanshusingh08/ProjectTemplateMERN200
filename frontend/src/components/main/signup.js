@@ -13,7 +13,7 @@ const Signup = () => {
     email: "",
     password: "",
     username: "",
-    age: 0,
+    age: "",
   };
 
   const userSubmit = (formdata) => {
@@ -47,8 +47,8 @@ const Signup = () => {
     password: Yup.string().min(3, "Too Short!!").required("Password Required"),
   });
   return (
-    <div>
-      <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+    <div className="background-signup">
+      <section className="vh-100" >
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11">
@@ -136,21 +136,7 @@ const Signup = () => {
                               </div>
                             </div>
 
-                            <div className="form-check d-flex justify-content-center mb-5">
-                              <input
-                                className="form-check-input me-2"
-                                type="checkbox"
-                                value=""
-                                id="form2Example3c"
-                              />
-                              <label
-                                className="form-check-label"
-                                for="form2Example3"
-                              >
-                                I agree all statements in{" "}
-                                <a href="#!">Terms of service</a>
-                              </label>
-                            </div>
+                         
 
                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                               <Button
