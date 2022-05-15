@@ -18,6 +18,7 @@ import BookSlot from "./components/main/bookSlot";
 import Manageprofile from "./components/owner/manageprofile";
 import BrowseSlot from "./components/user/browseSlot";
 import SlotDetails from "./components/user/slotDetails";
+import Home from "./components/main/home";
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
           <Route element={<Signup />} path="signup" />
           <Route element={<Login />} path="login" />
           <Route element={<BookSlot />} path="bookslot" />
-          <Route element={<Demo />} path="demo"/>
+          <Route element={<Demo />} path="demo" />
+          <Route element={<Home />} path="home" />
         </Route>
 
         <Route element={<Owner />} path="/owner">
@@ -50,8 +52,6 @@ function App() {
         </Route>
 
         <Route element={<Navigate to="/main/home" />} path="/" />
-      
-        
       </Routes>
     </BrowserRouter>
   );
