@@ -7,7 +7,6 @@ import Main from "./components/main";
 import Dashboard from "./components/admin/dashboard";
 import Profile from "./components/admin/profile";
 import Signup from "./components/main/signup";
-import Demo from "./components/main/demo";
 import ManagePlan from "./components/owner/managePlan";
 import ManageSlot from "./components/owner/manageslot";
 import Owner from "./components/owner";
@@ -33,7 +32,6 @@ function App() {
           <Route element={<Signup />} path="signup" />
           <Route element={<Login />} path="login" />
           <Route element={<BookSlot />} path="bookslot" />
-          <Route element={<Demo />} path="demo" />
           <Route element={<Home />} path="home" />
         </Route>
 
