@@ -29,7 +29,7 @@ const pages = [
   },
 ];
 
-const guestUser = [
+const guestOwner = [
   {
     name: "Home",
     link: "/main/home",
@@ -37,35 +37,35 @@ const guestUser = [
   },
   {
     name: "Login",
-    link: "/main/login",
+    link: "/owner/ownerlogin",
     icon: <Login />,
   },
   {
     name: "Signup",
-    link: "/main/signup",
+    link: "/owner/ownersignup",
     icon: <AppRegistration />,
   },
 ];
 
-const Header = () => {
+const Headerowner = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [anchorElGuest, setAnchorElGuest] = useState(null);
 
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentOwner, setCurrentUser] = useState(null);
 
-  const user = sessionStorage.getItem("user");
+  const owner = sessionStorage.getItem("owner");
 
   useEffect(() => {
-    setCurrentUser(JSON.parse(sessionStorage.getItem("user")));
-  }, [user]);
+    setCurrentUser(JSON.parse(sessionStorage.getItem("owner")));
+  }, [owner]);
 
   const navigate = useNavigate();
 
   const logout = () => {
     setAnchorElUser(null);
-    sessionStorage.removeItem("user");
-    navigate("/main/login");
+    sessionStorage.removeItem("owner");
+    navigate("/owner/ownerlogin");
   };
 
   const userMenu = [
@@ -75,10 +75,15 @@ const Header = () => {
       link: "/user/profile",
     },
     {
-      name: "Book Slot",
+      name: "Manage Plan",
       icon: <Subscriptions />,
-      link: "/owner/bookslot",
+      link: "/owner/manageplan",
     },
+    {
+        name: "Manage Slot",
+        icon: <Subscriptions />,
+        link: "/owner/manageslot",
+      },
     {
       name: "Logout",
       icon: <AccountCircle />,
@@ -170,7 +175,7 @@ const Header = () => {
             ))}
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            {guestUser.map(({ name, link, icon }) => (
+            {guestOwner.map(({ name, link, icon }) => (
               <Tooltip title={name}>
                 <IconButton
                   size="large"
@@ -183,7 +188,7 @@ const Header = () => {
               </Tooltip>
             ))}
           </Box>
-          {currentUser !== null && (
+          {currentOwner !== null && (
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -244,7 +249,7 @@ const Header = () => {
               open={Boolean(anchorElGuest)}
               onClose={(e) => setAnchorElGuest(null)}
             >
-              {guestUser.map(({ name, icon, link }) => (
+              {guestOwner.map(({ name, icon, link }) => (
                 <MenuItem key={name} onClick={(e) => navigate(link)}>
                   <ListItemIcon>{icon}</ListItemIcon>
                   <ListItemText>{name}</ListItemText>
@@ -257,4 +262,4 @@ const Header = () => {
     </AppBar>
   );
 };
-export default Header;
+export default Headerowner;

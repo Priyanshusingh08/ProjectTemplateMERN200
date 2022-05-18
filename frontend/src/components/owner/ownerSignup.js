@@ -1,24 +1,29 @@
 import { TextField, Button } from "@mui/material";
 import { Formik } from "formik";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
 import app_config from "../../config";
 
 const OwnerSignup = () => {
   const url = app_config.backend_url;
+  const navigate = useNavigate();
 
   const userForm = {
     email: "",
     password: "",
     username: "",
+    address:"",
+    city:"",
+    phone:"",
   };
 
   const userSubmit = (formdata) => {
     console.log(formdata);
 
-    fetch(url + "/user/add");
-    fetch(url + "/user/add", {
+    fetch(url + "/owner/add");
+    fetch(url + "/owner/add", {
       method: "POST",
       body: JSON.stringify(formdata),
       headers: {
@@ -98,6 +103,55 @@ const OwnerSignup = () => {
                               </div>
                             </div>
 
+                           
+
+                            <div className="d-flex flex-row align-items-center mb-4">
+                              <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+                              <div className="form-outline flex-fill mb-0">
+                                <TextField
+                                  fullWidth
+                                  typec="password"
+                                  variant="outlined"
+                                  label="Address"
+                                  id="address"
+                                  value={values.address}
+                                  onChange={handleChange}
+                                />
+                              </div>
+                            </div>
+
+                            <div className="d-flex flex-row align-items-center mb-4">
+                              <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+                              <div className="form-outline flex-fill mb-0">
+                                <TextField
+                                  fullWidth
+                                  typec="password"
+                                  variant="outlined"
+                                  label="City"
+                                  id="city"
+                                  value={values.city}
+                                  onChange={handleChange}
+                                 
+                                />
+                              </div>
+                            </div>
+
+                            <div className="d-flex flex-row align-items-center mb-4">
+                              <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+                              <div className="form-outline flex-fill mb-0">
+                                <TextField
+                                  fullWidth
+                                  typec="password"
+                                  variant="outlined"
+                                  label="Phone"
+                                  id="phone"
+                                  value={values.phone}
+                                  onChange={handleChange}
+                                 
+                                />
+                              </div>
+                            </div>
+
                             <div className="d-flex flex-row align-items-center mb-4">
                               <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
@@ -122,6 +176,7 @@ const OwnerSignup = () => {
                                 variant="contained"
                                 className="w-100"
                                 color="primary"
+                                onClick={(e) => navigate("/owner/ownerlogin")}
                               >
                                 Submit
                               </Button>

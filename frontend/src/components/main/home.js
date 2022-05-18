@@ -30,6 +30,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div>
+      
       <div className="d-flex h-100 text-center text-white bg-dark">
         <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
           <header className="mb-auto">
@@ -61,8 +62,14 @@ const Home = () => {
         </div>
       </div>
 
-      <Stack direction="row" spacing={{ xs: 1, sm: 2, md: 4 }} className="d-flex justify-content-center">
-        <Item>
+      <div className="d-flex justify-content-center " style={{backgroundColor: "#FFD700"}}>
+      <h2 className="justify-content-center">Plan Details</h2>
+      </div>
+
+     
+
+      <Stack direction="row" spacing={{ xs: 1, sm: 2, md: 4 }} className="d-flex justify-content-center mt-2">
+        
         <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
@@ -73,7 +80,7 @@ const Home = () => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Parking
+          1 Month
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -81,12 +88,12 @@ const Home = () => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small" variant="contained" onClick={(e) => navigate("/owner/ownersignup")}>Signup</Button>
+    
       </CardActions>
     </Card>
-        </Item>
-        <Item> <Card sx={{ maxWidth: 345 }}>
+      
+         <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         height="140"
@@ -95,7 +102,7 @@ const Home = () => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Parking
+          6 Months
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -103,11 +110,11 @@ const Home = () => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+      <Button size="small" variant="outl" onClick={(e) => navigate("/owner/ownersignup")}>Signup</Button>
+    
       </CardActions>
-    </Card></Item>
-        <Item> <Card sx={{ maxWidth: 345 }}>
+    </Card>
+        <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         height="140"
@@ -116,7 +123,7 @@ const Home = () => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Parking
+          1 Year
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -124,10 +131,9 @@ const Home = () => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small" variant="contained" onClick={(e) => navigate("/owner/ownersignup")}>Signup</Button>
       </CardActions>
-    </Card></Item>
+    </Card>
       </Stack>
 
    

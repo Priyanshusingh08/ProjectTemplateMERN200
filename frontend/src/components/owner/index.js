@@ -1,12 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from "../main/header";
+import Headerowner from "./headerowner";
 
 
 const Owner = () => {
   return (
     <div>
-      <Header/>
+      <Headerowner/>
       <Outlet />
     </div>
   );
