@@ -12,7 +12,6 @@ const OwnerSignup = () => {
     email: "",
     password: "",
     username: "",
-    age: 0,
   };
 
   const userSubmit = (formdata) => {
@@ -104,7 +103,7 @@ const OwnerSignup = () => {
                               <div className="form-outline flex-fill mb-0">
                                 <TextField
                                   fullWidth
-                                  type="password"
+                                  typec="password"
                                   variant="outlined"
                                   label="Password"
                                   id="password"
@@ -115,73 +114,7 @@ const OwnerSignup = () => {
                                 />
                               </div>
                             </div>
-
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <TextField
-                                  fullWidth
-                                  variant="outlined"
-                                  type="text"
-                                  label="Address"
-                                  id="address"
-                                />
-                              </div>
-                            </div>
-
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <TextField
-                                  fullWidth
-                                  variant="outlined"
-                                  type="text"
-                                  label="City"
-                                  id="city"
-                                />
-                              </div>
-                            </div>
-
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <TextField
-                                  fullWidth
-                                  variant="outlined"
-                                  type="text"
-                                  label="Road"
-                                  id="road"
-                                />
-                              </div>
-                            </div>
-
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <TextField
-                                  fullWidth
-                                  variant="outlined"
-                                  type="text"
-                                  label="Features"
-                                  id="features"
-                                />
-                              </div>
-                            </div>
-
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <TextField
-                                  fullWidth
-                                  variant="outlined"
-                                  type="text"
-                                  label="Plan"
-                                  id="plan"
-                                />
-                              </div>
-                            </div>
-
-                          
+                        
 
                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                               <Button

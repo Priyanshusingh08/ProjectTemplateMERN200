@@ -33,6 +33,7 @@ const ManageSlot = () => {
 
   const userSubmit = (formdata) => {
     console.log(formdata);
+   
 
     fetch(url + "/slot/add", {
       method: "POST",
@@ -69,12 +70,6 @@ const ManageSlot = () => {
       if (res.status === 200) {
         console.log("file uploaded");
         setSelFile(file.name);
-
-        Swal.fire({
-          icon: "success",
-          title: "Success!!",
-          text: "Successfully ",
-        });
       }
     });
   };
@@ -203,7 +198,7 @@ const ManageSlot = () => {
                                 className="w-100"
                                 color="primary"
                             
-                                onClick={(e) => navigate()}
+                                onClick={(e) => navigate("/owner/manageplan")}
                               >
                                 Add
                               </Button>

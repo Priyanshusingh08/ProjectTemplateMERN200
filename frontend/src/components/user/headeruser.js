@@ -64,7 +64,6 @@ const Header = () => {
 
   const logout = () => {
     setAnchorElUser(null);
-    sessionStorage.removeItem("user");
     navigate("/login");
   };
 
@@ -75,7 +74,7 @@ const Header = () => {
       link: "/user/profile",
     },
     {
-      name: "Manage Plan",
+      name: "Manage Vlogs",
       icon: <Subscriptions />,
       link: "/owner/manageplan",
     },
