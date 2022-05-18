@@ -62,7 +62,6 @@ const ManagePlan = () => {
             borderRadius: "10px",
             background: "#333",
             color: "#fff",
-            
           },
         });
         Swal.fire({
@@ -224,87 +223,85 @@ const ManagePlan = () => {
     }
   };
 
+  const showPlans = () => {};
+
   const displayData = () => {
     if (!loading) {
       return floristArray.map(
         ({ type, city, address, price, features, file, createdAt, _id }, i) => (
-        <div className="container " >
-        <Accordion key={_id}  className="shadow p-3 rounded  p-3 mb-2 bg-primary text-white">
-            <AccordionSummary
-            
-            className="p-3 mb-2 bg-primary text-white  "
-              expandIcon={<ExpandMore />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
+          <div className="container ">
+            <Accordion
+              key={_id}
+              className="shadow p-3 rounded  p-3 mb-2 bg-primary text-white"
             >
-              <h4 >{type}</h4>
-            </AccordionSummary>
-            <AccordionDetails  className="p-3 mb-2 bg-info text-white" >
-              <Grid container spacing={5}>
-                <Grid item md={3} sx={12}>
-                  <img
-                    src={url + "/uploads/" + file}
-                    alt=""
-                    className="img-fluid"
-                  />
-                </Grid>
+              <AccordionSummary
+                className="p-3 mb-2 bg-primary text-white  "
+                expandIcon={<ExpandMore />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <h4>{type}</h4>
+              </AccordionSummary>
+              <AccordionDetails className="p-3 mb-2 bg-info text-white">
+                <Grid container spacing={5}>
+                  <Grid item md={3} sx={12}>
+                    <img
+                      src={url + "/uploads/" + file}
+                      alt=""
+                      className="img-fluid"
+                    />
+                  </Grid>
 
-                <Grid item md={3} sx={12}>
-                  <h4>Details</h4>
-                  <h5>{price}</h5>
-                  <h5>{features}</h5>
-                  <h5>{city}</h5>
-                  <h5>{address}</h5>
-                </Grid>
+                  <Grid item md={3} sx={12}>
+                    <h4>Details</h4>
+                    <h5>{price}</h5>
+                    <h5>{features}</h5>
+                    <h5>{city}</h5>
+                    <h5>{address}</h5>
+                  </Grid>
 
-                <Grid item md={3} sx={12}>
-                  <Stack direction="row" spacing={2}>
-                    <Fab
-                      size="medium"
-                      color="primary"
-                      onClick={(e) => deleteData(_id)}
-                      aria-label="add"
-                      sx={{ mr: 1 }}
-                    >
-                      <DeleteRounded />
-                    </Fab>
-                    <Tooltip title="Update News Article">
+                  <Grid item md={3} sx={12}>
+                    <Stack direction="row" spacing={2}>
                       <Fab
                         size="medium"
-                        color="success"
-                        onClick={(e) => {
-                          // setUpdateFormdata(news);
-                          setShowUpdateForm(true);
-                        }}
+                        color="primary"
+                        onClick={(e) => deleteData(_id)}
                         aria-label="add"
+                        sx={{ mr: 1 }}
                       >
-                        <Edit size="small" />
+                        <DeleteRounded />
                       </Fab>
-                    </Tooltip>
-                    <Tooltip title="Update News Article">
-                      <Fab
-                        size="medium"
-                        color="success"
-                        onClick={(e) => {
-                          // setUpdateFormdata(news);
-                          setShowUpdateForm(true);
-                         
-                        }}
-                        aria-label="add"
-                      >
-                        <Edit size="small" />
-                      </Fab>
-                    </Tooltip>
-                  </Stack>
+                      <Tooltip title="Update News Article">
+                        <Fab
+                          size="medium"
+                          color="success"
+                          onClick={(e) => {
+                            // setUpdateFormdata(news);
+                            setShowUpdateForm(true);
+                          }}
+                          aria-label="add"
+                        >
+                          <Edit size="small" />
+                        </Fab>
+                      </Tooltip>
+                      <Tooltip title="Update News Article">
+                        <Fab
+                          size="medium"
+                          color="success"
+                          onClick={(e) => {
+                            // setUpdateFormdata(news);
+                            setShowUpdateForm(true);
+                          }}
+                          aria-label="add"
+                        >
+                          <Edit size="small" />
+                        </Fab>
+                      </Tooltip>
+                    </Stack>
+                  </Grid>
                 </Grid>
-
-                
-
-
-
-              </Grid>
-            </AccordionDetails>
-          </Accordion>
+              </AccordionDetails>
+            </Accordion>
           </div>
         )
       );
@@ -313,18 +310,20 @@ const ManagePlan = () => {
 
   return (
     <div className="container">
-      <h1>Manage Plan     <Button className="mt-2 float-right"
-                  type="submit"
-                  variant="contained"
-                  position="right"
-                  color="primary"
-                  onClick={(e) => navigate("/owner/manageslot")}
-                  
-                
-                >
-                  Add Plan
-                </Button></h1>
-    
+      <h1>
+        Manage Plan{" "}
+        <Button
+          className="mt-2 float-right"
+          type="submit"
+          variant="contained"
+          position="right"
+          color="primary"
+          onClick={(e) => navigate("/owner/manageslot")}
+        >
+          Add Plan
+        </Button>
+      </h1>
+
       {displayData()}
     </div>
   );
