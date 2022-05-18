@@ -64,8 +64,7 @@ const Header = () => {
 
   const logout = () => {
     setAnchorElUser(null);
-    sessionStorage.removeItem("user");
-    navigate("/main/login");
+    navigate("/login");
   };
 
   const userMenu = [
@@ -75,9 +74,9 @@ const Header = () => {
       link: "/user/profile",
     },
     {
-      name: "Book Slot",
+      name: "Manage Vlogs",
       icon: <Subscriptions />,
-      link: "/owner/bookslot",
+      link: "/owner/manageplan",
     },
     {
       name: "Logout",

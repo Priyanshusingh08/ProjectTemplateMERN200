@@ -46,69 +46,69 @@ const BrowseSlot = () => {
          type,
          location,
          price,
-         file,
+         image,
           _id,
         }) => (
-          <div key={_id} class="col-md-12 col-lg-4 mb-4 mb-lg-0">
-            <div class="card mt-5">
-              <NavLink className="ripple" to={"/main/pptviewer/" + _id}>
+          <div key={_id} className="col-md-12 col-lg-4 mb-4 mb-lg-0">
+            <div className="card mt-5">
+              <NavLink classNameName="ripple" to={"/main/manageslot/" + _id}>
                 <img
-                  src={url + "/slot/" + file}
-                  class="card-img-top"
+                  src={url + "/uploads/" + image}
+                  className="card-img-top"
                   alt="Laptop"
                 />
               </NavLink>
               
-              <div class="card-body">
+              <div className="card-body">
 
-              <div class="d-flex justify-content-between">
-                  <p class="small">
-                    <a href="#!" class="text-muted">
+              <div className="d-flex justify-content-between">
+                  <p className="small">
+                    <a href="#!" className="text-muted">
                       {type}
                     </a>
                   </p>
-                  {/* <p class="small text-danger">
+                  {/* <p className="small text-danger">
                     <s>$1099</s>
                   </p> */}
                 </div>
 
 
-                <div class="d-flex justify-content-between">
-                  <p class="small">
-                    <a href="#!" class="text-muted">
+                <div className="d-flex justify-content-between">
+                  <p className="small">
+                    <a href="#!" className="text-muted">
                       {location}
                     </a>
                   </p>
-                  {/* <p class="small text-danger">
+                  {/* <p className="small text-danger">
                     <s>$1099</s>
                   </p> */}
                 </div>
 
-                <div class="d-flex justify-content-between mb-3">
-                  <h5 class="mb-0">{price}</h5>
-                  {/* <h5 class="text-dark mb-0">FREE</h5> */}
+                <div className="d-flex justify-content-between mb-3">
+                  <h5 className="mb-0">{price}</h5>
+                  {/* <h5 className="text-dark mb-0">FREE</h5> */}
                 </div>
 
-                <div class="d-flex justify-content-between mb-2">
-                  <p class="text-muted mb-0">
-                    <span class="fw-bold">
+                <div className="d-flex justify-content-between mb-2">
+                  <p className="text-muted mb-0">
+                    <span className="fw-bold">
                     <Button
                   type="submit"
                   variant="contained"
-                  className="w-100"
+                  classNameName="w-100"
                   color="primary"
-                  onSubmit={navigate}
+                  onClick={(e) => navigate("/main/bookslot")}
                 >
                   Book Now
                 </Button>
                     </span>
                   </p>
-                  <div class="ms-auto text-warning">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                  <div className="ms-auto text-warning">
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
                   </div>
                 </div>
               </div>
@@ -149,13 +149,13 @@ const BrowseSlot = () => {
 
   return (
     <div style={{ background: "#eee" }}>
-      <header style={styles.header}>
+       <header style={styles.header}>
         <div className="container">
           <Typography className="text-center text-white" variant="h5">
-            Pick And Park
+            PicK And Park
           </Typography>
           <Typography className="text-center text-white" variant="h2">
-            Explore best palce to park
+            Pick the safe place for your car to park
           </Typography>
 
           <div className="input-group mt-5">

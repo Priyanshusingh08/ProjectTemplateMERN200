@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import app_config from "../../config";
 import toast from "react-hot-toast";
+import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import {
   Accordion,
   AccordionDetails,
@@ -28,6 +29,8 @@ import {
   Newspaper,
   TitleSharp,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const BookSlot = () => {
   const [loading, setLoading] = useState(true);
@@ -37,9 +40,10 @@ const BookSlot = () => {
   const [filter, setFilter] = useState("");
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [updateFormdata, setUpdateFormdata] = useState({});
+  const navigate = useNavigate();
 
   const fetchData = () => {
-    fetch(url + "/user/getall")
+    fetch(url + "/slot/getall")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -49,7 +53,7 @@ const BookSlot = () => {
   };
 
   const deleteData = (id) => {
-    fetch(url + "/user/delete/" + id, { method: "DELETE" })
+    fetch(url + "/slot/delete/" + id, { method: "DELETE" })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -61,11 +65,16 @@ const BookSlot = () => {
             color: "#fff",
           },
         });
+        Swal.fire({
+          icon: "success",
+          title: "Success!!",
+          text: "Deleted",
+        });
       });
   };
 
   const applyfilter = () => {
-    fetch(url + "/user/getall")
+    fetch(url + "/slot/getall")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -218,75 +227,80 @@ const BookSlot = () => {
   const displayData = () => {
     if (!loading) {
       return floristArray.map(
-        (
-          {
-            title,
-            description,
-            category,
-            numSlides,
-            thumbnail,
-            file,
-            createdAt,
-            _id,
-          },
-          i
-        ) => (
-          <Accordion key={_id}>
-            <AccordionSummary
-              expandIcon={<ExpandMore />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
+        ({ type, city, address, price, features, file, createdAt, _id }, i) => (
+          <div className="container ">
+            <Accordion
+              key={_id}
+              className="shadow p-3 rounded  p-3 mb-2 bg-primary text-white"
             >
-              <h4>{title}</h4>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Grid container spacing={5}>
-                <Grid item md={3} sx={12}>
-                  <img
-                    src={url + "/uploads/" + thumbnail}
-                    alt=""
-                    className="img-fluid"
-                  />
-                </Grid>
-                <Grid item md={3} sx={12}>
-                  <Stack direction="row" spacing={2}>
-                    <Fab
-                      size="medium"
-                      color="primary"
-                      onClick={(e) => deleteData(_id)}
-                      aria-label="add"
-                      sx={{ mr: 1 }}
-                    >
-                      <DeleteRounded />
-                    </Fab>
-                    <Tooltip title="Update News Article">
+              <AccordionSummary
+                className="p-3 mb-2 bg-primary text-white  "
+                expandIcon={<ExpandMore />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <h4>{type}</h4>
+              </AccordionSummary>
+              <AccordionDetails className="p-3 mb-2 bg-info text-white">
+                <Grid container spacing={5}>
+                  <Grid item md={3} sx={12}>
+                    <img
+                      src={url + "/uploads/" + file}
+                      alt=""
+                      className="img-fluid"
+                    />
+                  </Grid>
+
+                  <Grid item md={3} sx={12}>
+                    <h4>Details</h4>
+                    <h5>{price}</h5>
+                    <h5>{features}</h5>
+                    <h5>{city}</h5>
+                    <h5>{address}</h5>
+                  </Grid>
+
+                  <Grid item md={3} sx={12}>
+                    <Stack direction="row" spacing={2}>
+                    <Tooltip title="Book Slot">
                       <Fab
                         size="medium"
                         color="success"
-                        onClick={(e) => {
-                          // setUpdateFormdata(news);
-                          setShowUpdateForm(true);
-                        }}
-                        aria-label="add"
+  
+                        sx={{ mr: 1 }}
                       >
-                        <Edit size="small" />
+                        <CheckCircleRoundedIcon />
                       </Fab>
-                    </Tooltip>
-                  </Stack>
+                      </Tooltip>
+                      
+                    
+                    </Stack>
+                  </Grid>
                 </Grid>
-              </Grid>
-              <h5>{category}</h5>
-              <h5>{description}</h5>
-            </AccordionDetails>
-          </Accordion>
+              </AccordionDetails>
+            </Accordion>
+          </div>
         )
       );
     }
   };
 
   return (
-    <div>
-      <h1>Manage Florists</h1>
+    <div className="container">
+      <h1>
+
+        BOOk Slot
+      
+        <Button
+          className="mt-2 float-right"
+          variant="contained"
+          position="right"
+          color="primary"
+          onClick={(e) => navigate("/user/browseslot")}
+        >
+          Browse
+        </Button>
+      </h1>
+
       {displayData()}
     </div>
   );

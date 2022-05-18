@@ -77,6 +77,7 @@ import {
                     variant="contained"
                     className="w-100"
                     color="primary"
+                    onClick={(e) => navigate("/owner/manageplan")}
                   >
                     Submit
                   </Button>

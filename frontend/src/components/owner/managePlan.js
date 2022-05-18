@@ -318,7 +318,7 @@ const ManagePlan = () => {
                   variant="contained"
                   position="right"
                   color="primary"
-                  onClick={(e) => navigate("/owner/manageplan")}
+                  onClick={(e) => navigate("/owner/manageslot")}
                   
                 
                 >

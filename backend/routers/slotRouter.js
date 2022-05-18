@@ -45,5 +45,17 @@ router.delete("/delete/:id", (req, res) => {
     });
 });
 
+router.put("/update/:id", (req, res) => {
+  Model.findByIdAndUpdate(req.params.id,req.body)
+    .then((data) => {
+      console.log("data saved");
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
+
 
 module.exports = router;

@@ -13,11 +13,12 @@ const Manageprofile = () => {
     name: "",
     email: "",
     phone: "",
-    image: "",
     city: "",
-    state: "",
-    road: "",
+    state:"",
+    road:"",
+    image:"",
     about:"",
+
   };
 
   const userSubmit = (formdata) => {
@@ -42,10 +43,18 @@ const Manageprofile = () => {
       });
   };
 
+
   return (
-    <Formik initialValues={userForm} onSubmit={userSubmit}>
-      {({ values, handleSubmit, handleChange, errors }) => (
-        <form onSubmit={handleSubmit} className="mx-1 mx-md-4">
+    <Formik
+                        initialValues={userForm}
+                        onSubmit={userSubmit}
+                    
+                      >
+                        {({ values, handleSubmit, handleChange, errors }) => (
+                          <form
+                            onSubmit={handleSubmit}
+                            className="mx-1 mx-md-4"
+                          >
           <div className="bdy mt-5">
             <div className="container">
               <div className="row gutters">
@@ -225,9 +234,9 @@ const Manageprofile = () => {
               </div>
             </div>
           </div>
-        </form>
-      )}
-    </Formik>
+          </form>
+                        )}
+                      </Formik>
   );
 };
 

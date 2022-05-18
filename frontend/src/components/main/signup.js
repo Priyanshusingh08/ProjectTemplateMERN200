@@ -1,19 +1,19 @@
 import { TextField, Button } from "@mui/material";
 import { Formik } from "formik";
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
 import app_config from "../../config";
 
 const Signup = () => {
   const url = app_config.backend_url;
+  const navigate = useNavigate();
 
   const userForm = {
     email: "",
     password: "",
     username: "",
-    age: "",
   };
 
   const userSubmit = (formdata) => {
@@ -140,6 +140,7 @@ const Signup = () => {
                                 variant="contained"
                                 className="w-100"
                                 color="primary"
+                                onClick={(e) => navigate("/main/login")}
                               >
                                 Submit
                               </Button>
