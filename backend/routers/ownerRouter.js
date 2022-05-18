@@ -3,10 +3,7 @@ const express = require("express");
 const Model = require("../models/OwnerModel");
 // create router
 const router = express.Router();
-router.get("/home", (req, res) => {
-  console.log("a request at user home");
-  res.send("you have found user Home");
-});
+
 router.post("/add", (req, res) => {
   console.log(req.body);
   new Model(req.body)
@@ -20,7 +17,30 @@ router.post("/add", (req, res) => {
       res.status(500).json(err);
     });
 });
-
+router.put("/update/:id", (req, res) => {
+  console.log(req.body);
+  Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((data) => {
+      console.log("data saved");
+      res.status(200).json({ message: "success" });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
+router.put("/pushupdate/:id", (req, res) => {
+  console.log(req.body);
+  Model.findByIdAndUpdate(req.params.id, { $push: req.body }, { new: true })
+    .then((data) => {
+      console.log("data saved");
+      res.status(200).json({ message: "success" });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
 
 router.get("/getall", (req, res) => {
   Model.find({})

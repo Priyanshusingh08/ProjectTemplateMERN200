@@ -1,51 +1,50 @@
 import {
-    Button,
-    Card,
-    CardContent,
-    CardMedia,
-    Container,
-    TextField,
-  } from "@mui/material";
-  import { Formik } from "formik";
-  import { useNavigate } from "react-router-dom";
-  import Swal from "sweetalert2";
-  import app_config from "../../config";
-  
-  const OwnerLogin = () => {
-    const url = app_config.backend_url;
-    const navigate = useNavigate();
-    const loginForm = {
-      email: "",
-      password: "",
-    };
-    const loginSubmit = (formdata) => {
-      console.log(formdata);
-  
-      fetch(url + "/user/authenticate", {
-        method: "POST",
-        body: JSON.stringify(formdata),
-        headers: { "Content-Type": "application/json" },
-      }).then((res) => {
-        if (res.status === 200) {
-          Swal.fire({
-            icon: "success",
-            title: "Success!!",
-            text: "Successfully loggedin",
-          });
-    
-        } else if (res.status === 400) {
-          Swal.fire({
-            icon: "error",
-            title: "Oops!!",
-            text: "Login Failed",
-          });
-        }
-      });
-    };
-    return (
-      <div className="login-back">
-  
-         <Container maxWidth="xs" sx={{ display: "flex", alignItems: "center" }}>
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  TextField,
+} from "@mui/material";
+import { Formik } from "formik";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import app_config from "../../config";
+
+const OwnerLogin = () => {
+  const url = app_config.backend_url;
+  const navigate = useNavigate();
+  const loginForm = {
+    email: "",
+    password: "",
+  };
+  const loginSubmit = (formdata) => {
+    console.log(formdata);
+
+    fetch(url + "/owner/authenticate", {
+      method: "POST",
+      body: JSON.stringify(formdata),
+      headers: { "Content-Type": "application/json" },
+    }).then((res) => {
+      if (res.status === 200) {
+        Swal.fire({
+          icon: "success",
+          title: "Success!!",
+          text: "Successfully loggedin",
+        });
+        navigate("/owner/manageplan");
+      } else if (res.status === 400) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops!!",
+          text: "Login Failed",
+        });
+      }
+    });
+  };
+  return (
+    <div className="login-back">
+      <Container maxWidth="xs" sx={{ display: "flex", alignItems: "center" }}>
         <Card className="w-100">
           <p className="text-center mt-5 mb-5 h3">Login</p>
           <CardContent>
@@ -71,13 +70,12 @@ import {
                     value={values.password}
                     onChange={handleChange}
                   />
-  
+
                   <Button
                     type="submit"
                     variant="contained"
                     className="w-100"
                     color="primary"
-                    onClick={(e) => navigate("/owner/manageplan")}
                   >
                     Submit
                   </Button>
@@ -87,9 +85,7 @@ import {
           </CardContent>
         </Card>
       </Container>
-  
-      </div>
-     
-    );
-  };
-  export default OwnerLogin;
+    </div>
+  );
+};
+export default OwnerLogin;

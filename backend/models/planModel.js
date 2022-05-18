@@ -4,8 +4,8 @@ const schema = new mongoose.Schema({
   name: String,
   price: String,
   validity: String,
-  features:String,
-  createAt: { type: Date, default: new Date() },
+  features: String,
+  createAt: Date,
 });
 
 const model = mongoose.model("plan", schema);

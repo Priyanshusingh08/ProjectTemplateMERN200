@@ -2,6 +2,7 @@ const express = require("express");
 const userRouter = require("./routers/userRouter");
 const utilRouter = require("./routers/util");
 const slotRouter = require("./routers/slotRouter");
+const ownerRouter = require("./routers/ownerRouter");
 const cors = require("cors");
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use("/user", userRouter);
 app.use("/util", utilRouter);
 app.use("/slot", slotRouter);
+app.use("/owner", ownerRouter);
 
 app.get("/", (req, res) => {
   res.send("you got a response");

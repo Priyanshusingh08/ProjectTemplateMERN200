@@ -14,15 +14,14 @@ const OwnerSignup = () => {
     email: "",
     password: "",
     username: "",
-    address:"",
-    city:"",
-    phone:"",
+    address: "",
+    city: "",
+    phone: "",
   };
 
   const userSubmit = (formdata) => {
     console.log(formdata);
 
-    fetch(url + "/owner/add");
     fetch(url + "/owner/add", {
       method: "POST",
       body: JSON.stringify(formdata),
@@ -38,6 +37,7 @@ const OwnerSignup = () => {
           title: "Success",
           text: "Registered successfully",
         });
+        navigate("/main/ownerlogin");
       });
   };
 
@@ -103,8 +103,6 @@ const OwnerSignup = () => {
                               </div>
                             </div>
 
-                           
-
                             <div className="d-flex flex-row align-items-center mb-4">
                               <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
@@ -131,7 +129,6 @@ const OwnerSignup = () => {
                                   id="city"
                                   value={values.city}
                                   onChange={handleChange}
-                                 
                                 />
                               </div>
                             </div>
@@ -147,7 +144,6 @@ const OwnerSignup = () => {
                                   id="phone"
                                   value={values.phone}
                                   onChange={handleChange}
-                                 
                                 />
                               </div>
                             </div>
@@ -168,7 +164,6 @@ const OwnerSignup = () => {
                                 />
                               </div>
                             </div>
-                        
 
                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                               <Button
@@ -176,7 +171,6 @@ const OwnerSignup = () => {
                                 variant="contained"
                                 className="w-100"
                                 color="primary"
-                                onClick={(e) => navigate("/owner/ownerlogin")}
                               >
                                 Submit
                               </Button>

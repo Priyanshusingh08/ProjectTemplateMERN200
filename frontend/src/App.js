@@ -33,11 +33,11 @@ function App() {
           <Route element={<Login />} path="login" />
           <Route element={<BookSlot />} path="bookslot" />
           <Route element={<Home />} path="home" />
+          <Route element={<OwnerSignup />} path="ownersignup" />
+          <Route element={<OwnerLogin />} path="ownerlogin" />
         </Route>
 
         <Route element={<Owner />} path="/owner">
-          <Route element={<OwnerSignup />} path="ownersignup" />
-          <Route element={<OwnerLogin />} path="ownerlogin" />
           <Route element={<ManagePlan />} path="manageplan" />
           <Route element={<PricingPlan />} path="pricingplan" />
           <Route element={<ManageSlot />} path="manageslot" />
