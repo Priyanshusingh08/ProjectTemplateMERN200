@@ -11,6 +11,6 @@ const schema = new mongoose.Schema({
   createAt: { type: Date, default: new Date() },
 });
 
-const model = mongoose.model("owners", schema);
+const model = mongoose.model("owner", schema);
 
 module.exports = model;
