@@ -8,11 +8,7 @@ const BrowseSlot = () => {
   const [datalist, setDatalist] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const categories = [
-    "Type",
-    "Location",
-    "Price", 
-  ];
+  const categories = ["Type", "Location", "Price"];
 
   const url = app_config.backend_url;
   const navigate = useNavigate();
@@ -26,7 +22,6 @@ const BrowseSlot = () => {
           setLoading(false);
         });
         res.json().then((data) => {
-          
           navigate("/main/bookslot");
         });
       }
@@ -41,81 +36,71 @@ const BrowseSlot = () => {
 
   const displayData = () => {
     if (!loading) {
-      return datalist.map(
-        ({
-         type,
-         location,
-         price,
-         image,
-          _id,
-        }) => (
-          <div key={_id} className="col-md-12 col-lg-4 mb-4 mb-lg-0">
-            <div className="card mt-5">
-              <NavLink classNameName="ripple" to={"/main/manageslot/" + _id}>
-                <img
-                  src={url + "/uploads/" + image}
-                  className="card-img-top"
-                  alt="Laptop"
-                />
-              </NavLink>
-              
-              <div className="card-body">
+      return datalist.map(({ type, location, price, image, _id, owner }) => (
+        <div key={_id} className="col-md-12 col-lg-4 mb-4 mb-lg-0">
+          <div className="card mt-5">
+            <NavLink classNameName="ripple" to={"/main/manageslot/" + _id}>
+              <img
+                src={url + "/uploads/" + owner.image}
+                className="card-img-top"
+                alt="Laptop"
+              />
+            </NavLink>
+
+            <div className="card-body">
+              <div className="d-flex justify-content-between">
+                <p className="small">
+                  <a href="#!" className="text-muted">
+                    {type}
+                  </a>
+                </p>
+                {/* <p className="small text-danger">
+                    <s>$1099</s>
+                  </p> */}
+              </div>
 
               <div className="d-flex justify-content-between">
-                  <p className="small">
-                    <a href="#!" className="text-muted">
-                      {type}
-                    </a>
-                  </p>
-                  {/* <p className="small text-danger">
+                <p className="small">
+                  <a href="#!" className="text-muted">
+                    {location}
+                  </a>
+                </p>
+                {/* <p className="small text-danger">
                     <s>$1099</s>
                   </p> */}
-                </div>
+              </div>
 
+              <div className="d-flex justify-content-between mb-3">
+                <h5 className="mb-0">{price}</h5>
+                {/* <h5 className="text-dark mb-0">FREE</h5> */}
+              </div>
 
-                <div className="d-flex justify-content-between">
-                  <p className="small">
-                    <a href="#!" className="text-muted">
-                      {location}
-                    </a>
-                  </p>
-                  {/* <p className="small text-danger">
-                    <s>$1099</s>
-                  </p> */}
-                </div>
-
-                <div className="d-flex justify-content-between mb-3">
-                  <h5 className="mb-0">{price}</h5>
-                  {/* <h5 className="text-dark mb-0">FREE</h5> */}
-                </div>
-
-                <div className="d-flex justify-content-between mb-2">
-                  <p className="text-muted mb-0">
-                    <span className="fw-bold">
+              <div className="d-flex justify-content-between mb-2">
+                <p className="text-muted mb-0">
+                  <span className="fw-bold">
                     <Button
-                  type="submit"
-                  variant="contained"
-                  classNameName="w-100"
-                  color="primary"
-                  onClick={(e) => navigate("/main/bookslot")}
-                >
-                  Book Now
-                </Button>
-                    </span>
-                  </p>
-                  <div className="ms-auto text-warning">
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                  </div>
+                      type="submit"
+                      variant="contained"
+                      classNameName="w-100"
+                      color="primary"
+                      onClick={(e) => navigate("/main/bookslot")}
+                    >
+                      Book Now
+                    </Button>
+                  </span>
+                </p>
+                <div className="ms-auto text-warning">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
               </div>
             </div>
           </div>
-        )
-      );
+        </div>
+      ));
     }
   };
 
@@ -138,7 +123,7 @@ const BrowseSlot = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        const filtered = data.filter(({ location,type,price }) => {
+        const filtered = data.filter(({ location, type, price }) => {
           return location.toLowerCase().includes(cate.toLowerCase());
         });
         console.log(filtered);
@@ -149,7 +134,7 @@ const BrowseSlot = () => {
 
   return (
     <div style={{ background: "#eee" }}>
-       <header style={styles.header}>
+      <header style={styles.header}>
         <div className="container">
           <Typography className="text-center text-white" variant="h5">
             PicK And Park

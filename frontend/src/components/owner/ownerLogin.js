@@ -14,10 +14,12 @@ import app_config from "../../config";
 const OwnerLogin = () => {
   const url = app_config.backend_url;
   const navigate = useNavigate();
+
   const loginForm = {
     email: "",
     password: "",
   };
+
   const loginSubmit = (formdata) => {
     console.log(formdata);
 
@@ -32,7 +34,11 @@ const OwnerLogin = () => {
           title: "Success!!",
           text: "Successfully loggedin",
         });
-        navigate("/owner/manageplan");
+        console.log("there");
+        res.json().then((data) => {
+          sessionStorage.setItem("owner", JSON.stringify(data));
+          navigate("/owner/manageprofile");
+        });
       } else if (res.status === 400) {
         Swal.fire({
           icon: "error",

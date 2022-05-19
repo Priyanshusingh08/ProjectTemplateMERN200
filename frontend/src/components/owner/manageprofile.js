@@ -1,60 +1,92 @@
 import { Button, TextField } from "@mui/material";
 import { Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import DeleteIcon from "@mui/icons-material/Delete";
 import app_config from "../../config";
 import IconButton from "@mui/material/IconButton";
+import toast from "react-hot-toast";
 
 const Manageprofile = () => {
   const url = app_config.backend_url;
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("owner"))
+  );
+  const [loading, setLoading] = useState(true);
+  const [updateForm, setUpdateForm] = useState(currentUser);
+  const [selImage, setSelImage] = useState("");
 
-  const userForm = {
-    name: "",
-    email: "",
-    phone: "",
-    city: "",
-    state:"",
-    road:"",
-    image:"",
-    about:"",
+  console.log(currentUser);
 
-  };
-
-  const userSubmit = (formdata) => {
-    console.log(formdata);
-
-    fetch(url + "/ownerprofile/add");
-    fetch(url + "/ownerprofile/add", {
-      method: "POST",
-      body: JSON.stringify(formdata),
+  const onFormSubmit = (value, { setSubmitting }) => {
+    fetch(url + "/owner/update/" + currentUser._id, {
+      method: "PUT",
+      body: JSON.stringify(value),
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "Registered successfully",
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((data) => {
+          console.log(data);
+          setCurrentUser(data);
+          sessionStorage.setItem("owner", JSON.stringify(data));
         });
+      }
+      Swal.fire({
+        icon: "success",
+        title: "Welldone!",
+        text: "You have successfully Updated",
       });
+    });
   };
 
+  const uploadThumbnail = (e) => {
+    const file = e.target.files[0];
+    setSelImage(file.name);
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch(url + "/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        fetch(url + "/owner/update/" + currentUser._id, {
+          method: "PUT",
+          body: JSON.stringify({ image: file.name }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }).then((res) => {
+          console.log(res.status);
+          if (res.status == 200) {
+            res.json().then((data) => {
+              console.log(data);
+              setCurrentUser(data);
+              sessionStorage.setItem("owner", JSON.stringify(data));
+            });
+          }
+          Swal.fire({
+            icon: "success",
+            title: "Welldone!",
+            text: "You have successfully Updated",
+          });
+        });
+        toast.success("Image Uploaded!!", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      }
+    });
+  };
 
   return (
-    <Formik
-                        initialValues={userForm}
-                        onSubmit={userSubmit}
-                    
-                      >
-                        {({ values, handleSubmit, handleChange, errors }) => (
-                          <form
-                            onSubmit={handleSubmit}
-                            className="mx-1 mx-md-4"
-                          >
+    <Formik initialValues={updateForm} onSubmit={onFormSubmit}>
+      {({ values, handleSubmit, handleChange, errors }) => (
+        <form onSubmit={handleSubmit} className="mx-1 mx-md-4">
           <div className="bdy mt-5">
             <div className="container">
               <div className="row gutters">
@@ -66,29 +98,33 @@ const Manageprofile = () => {
                           <div className="user-avatar">
                             <img
                               className="img-fluid"
-                              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png"
+                              src={
+                                currentUser.image
+                                  ? url + "/uploads/" + currentUser.image
+                                  : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png"
+                              }
                               alt="Maxwell Admin"
                             />
                             <input
                               className="form-control w-100 mb-4"
                               type="file"
-                              id="image"
-                              value={values.image}
-                            onChange={handleChange}
+                              onChange={uploadThumbnail}
                             />
                           </div>
-                          <h5 className="user-name mt-2">Yuki Hayashi</h5>
-                          <h6 className="user-email">yuki@Maxwell.com</h6>
+                          <h5 className="user-name mt-2">
+                            {currentUser.username}
+                          </h5>
+                          <h6 className="user-email">{currentUser.email}</h6>
                         </div>
                         <div className="about">
                           <TextField
                             className="mt-2"
                             fullWidth
-                            id="about"
-                            label="About you"
+                            id="address"
+                            label="Address"
                             multiline
                             rows={4}
-                            value={values.about}
+                            value={values.address}
                             onChange={handleChange}
                           />
                         </div>
@@ -110,11 +146,10 @@ const Manageprofile = () => {
                             <TextField
                               fullWidth
                               variant="outlined"
-                        
                               type="text"
-                              label="Name"
-                              id="name"
-                              value={values.name}
+                              label="Username"
+                              id="username"
+                              value={values.username}
                               onChange={handleChange}
                             />
                           </div>
@@ -124,7 +159,6 @@ const Manageprofile = () => {
                             <TextField
                               fullWidth
                               variant="outlined"
-                              
                               type="text"
                               label="Email"
                               id="email"
@@ -138,7 +172,6 @@ const Manageprofile = () => {
                             <TextField
                               fullWidth
                               variant="outlined"
-                              
                               type="text"
                               label="Phone"
                               id="phone"
@@ -147,7 +180,6 @@ const Manageprofile = () => {
                             />
                           </div>
                         </div>
-                       
                       </div>
                       <div className="row gutters">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -158,7 +190,6 @@ const Manageprofile = () => {
                             <TextField
                               fullWidth
                               variant="outlined"
-                            
                               type="text"
                               label="City"
                               id="city"
@@ -172,7 +203,6 @@ const Manageprofile = () => {
                             <TextField
                               fullWidth
                               variant="outlined"
-                              
                               type="text"
                               label="State"
                               id="state"
@@ -186,7 +216,6 @@ const Manageprofile = () => {
                             <TextField
                               fullWidth
                               variant="outlined"
-                              
                               type="text"
                               label="road"
                               id="road"
@@ -195,11 +224,6 @@ const Manageprofile = () => {
                             />
                           </div>
                         </div>
-                    
-                        
-                        
-                        
-                       
                       </div>
                       <div className="row gutters">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -234,9 +258,9 @@ const Manageprofile = () => {
               </div>
             </div>
           </div>
-          </form>
-                        )}
-                      </Formik>
+        </form>
+      )}
+    </Formik>
   );
 };
 

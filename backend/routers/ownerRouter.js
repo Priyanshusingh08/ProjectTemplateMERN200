@@ -22,7 +22,7 @@ router.put("/update/:id", (req, res) => {
   Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((data) => {
       console.log("data saved");
-      res.status(200).json({ message: "success" });
+      res.status(200).json(data);
     })
     .catch((err) => {
       console.error(err);
@@ -34,7 +34,7 @@ router.put("/pushupdate/:id", (req, res) => {
   Model.findByIdAndUpdate(req.params.id, { $push: req.body }, { new: true })
     .then((data) => {
       console.log("data saved");
-      res.status(200).json({ message: "success" });
+      res.status(200).json(data);
     })
     .catch((err) => {
       console.error(err);

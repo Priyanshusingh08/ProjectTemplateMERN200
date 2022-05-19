@@ -23,6 +23,7 @@ router.post("/add", (req, res) => {
 
 router.get("/getall", (req, res) => {
   Model.find({})
+    .populate("owner")
     .then((data) => {
       console.log("data saved");
       res.status(200).json(data);
@@ -46,7 +47,7 @@ router.delete("/delete/:id", (req, res) => {
 });
 
 router.put("/update/:id", (req, res) => {
-  Model.findByIdAndUpdate(req.params.id,req.body)
+  Model.findByIdAndUpdate(req.params.id, req.body)
     .then((data) => {
       console.log("data saved");
       res.status(200).json(data);
@@ -56,6 +57,5 @@ router.put("/update/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
 
 module.exports = router;

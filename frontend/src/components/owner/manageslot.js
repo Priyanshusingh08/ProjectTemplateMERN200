@@ -16,24 +16,20 @@ const ManageSlot = () => {
   const [loading, setLoading] = useState(true);
 
   const [currentUser, setCurrentUser] = useState(
-    JSON.parse(sessionStorage.getItem("user"))
+    JSON.parse(sessionStorage.getItem("owner"))
   );
 
-
   const userForm = {
+    title: "",
     type: "",
-    city: "",
-    address: "",
-    features: "",
-    expireOn: "",
-    price: "",
-    image: "",
-    date: new Date(),
+    price: 0,
+    total: 0,
+    owner: currentUser._id,
+    createAt: new Date(),
   };
 
   const userSubmit = (formdata) => {
     console.log(formdata);
-   
 
     fetch(url + "/slot/add", {
       method: "POST",
@@ -51,27 +47,6 @@ const ManageSlot = () => {
           text: "Added successfully",
         });
       });
-  };
-
-  
-
-  
-
-  const uploadFile = (e) => {
-    const file = e.target.files[0];
-
-    const fd = new FormData();
-    fd.append("myfile", file);
-
-    fetch(url + "/util/uploadfile", {
-      method: "POST",
-      body: fd,
-    }).then((res) => {
-      if (res.status === 200) {
-        console.log("file uploaded");
-        setSelFile(file.name);
-      }
-    });
   };
 
   return (
@@ -101,7 +76,21 @@ const ManageSlot = () => {
                                   fullWidth
                                   variant="outlined"
                                   type="text"
-                                  label="type"
+                                  label="Title"
+                                  id="title"
+                                  value={values.title}
+                                  onChange={handleChange}
+                                />
+                              </div>
+                            </div>
+                            <div className="d-flex flex-row align-items-center mb-4">
+                              <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                              <div className="form-outline flex-fill mb-0">
+                                <TextField
+                                  fullWidth
+                                  variant="outlined"
+                                  type="text"
+                                  label="Type"
                                   id="type"
                                   value={values.type}
                                   onChange={handleChange}
@@ -115,68 +104,8 @@ const ManageSlot = () => {
                                 <TextField
                                   fullWidth
                                   variant="outlined"
-                                  type="text"
-                                  label="City"
-                                  id="city"
-                                  value={values.city}
-                                  onChange={handleChange}
-                                />
-                              </div>
-                            </div>
-
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <TextField
-                                  fullWidth
-                                  type="text"
-                                  variant="outlined"
-                                  label="Address"
-                                  id="address"
-                                  value={values.address}
-                                  onChange={handleChange}
-                                />
-                              </div>
-                            </div>
-
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <TextField
-                                  fullWidth
-                                  type="text"
-                                  variant="outlined"
-                                  label="Features"
-                                  id="features"
-                                  value={values.features}
-                                  onChange={handleChange}
-                                />
-                              </div>
-                            </div>
-
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <TextField
-                                  fullWidth
-                                  type="text"
-                                  variant="outlined"
-                                  label="Expire on"
-                                  id="expireon"
-                                  value={values.expireon}
-                                  onChange={handleChange}
-                                />
-                              </div>
-                            </div>
-
-                            <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                              <div className="form-outline flex-fill mb-0">
-                                <TextField
-                                  fullWidth
-                                  type="text"
-                                  variant="outlined"
-                                  label="Price"
+                                  type="number"
+                                  label="Price per 4 hrs."
                                   id="price"
                                   value={values.price}
                                   onChange={handleChange}
@@ -184,11 +113,20 @@ const ManageSlot = () => {
                               </div>
                             </div>
 
-                            <input
-                              className="form-control w-100 mb-4"
-                              type="file"
-                              onChange={uploadFile}
-                            />
+                            <div className="d-flex flex-row align-items-center mb-4">
+                              <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+                              <div className="form-outline flex-fill mb-0">
+                                <TextField
+                                  fullWidth
+                                  type="text"
+                                  variant="outlined"
+                                  label="Total Slots Available"
+                                  id="total"
+                                  value={values.total}
+                                  onChange={handleChange}
+                                />
+                              </div>
+                            </div>
 
                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                               <Button
@@ -197,10 +135,8 @@ const ManageSlot = () => {
                                 variant="contained"
                                 className="w-100"
                                 color="primary"
-                            
-                                onClick={(e) => navigate("/owner/manageplan")}
                               >
-                                Add
+                                Add Slot
                               </Button>
                             </div>
                           </form>

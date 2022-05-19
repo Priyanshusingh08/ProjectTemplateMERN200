@@ -25,7 +25,11 @@ import { useEffect, useState } from "react";
 const pages = [
   {
     name: "Browse Slot",
-    link: "/user/browseslot",
+    link: "/main/browseslot",
+  },
+  {
+    name: "Owner Login",
+    link: "/main/ownerlogin",
   },
 ];
 

@@ -14,7 +14,7 @@ app.use("/user", userRouter);
 app.use("/util", utilRouter);
 app.use("/slot", slotRouter);
 app.use("/owner", ownerRouter);
-
+app.use(express.static("./static"));
 app.get("/", (req, res) => {
   res.send("you got a response");
 });

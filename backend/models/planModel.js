@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
   price: String,
   validity: String,
   features: String,
+  owner: { type: mongoose.Types.ObjectId, ref: "owner" },
   createAt: Date,
 });
 

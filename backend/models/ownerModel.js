@@ -9,7 +9,7 @@ const schema = new mongoose.Schema({
   phone: String,
   features: Array,
   road: String,
-  plans: [{ type: mongoose.Types.ObjectId, ref: "plan" }],
+  image: String,
   createAt: Date,
 });
 
