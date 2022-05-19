@@ -13,6 +13,6 @@ const schema = new mongoose.Schema({
   createAt: Date,
 });
 
-const model = mongoose.model("owners", schema);
+const model = mongoose.model("owner", schema);
 
 module.exports = model;

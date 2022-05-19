@@ -12,12 +12,12 @@ import ManageSlot from "./components/owner/manageslot";
 import Owner from "./components/owner";
 import OwnerSignup from "./components/owner/ownerSignup";
 import OwnerLogin from "./components/owner/ownerLogin";
-import PricingPlan from "./components/main/pricingPlan";
 import BookSlot from "./components/main/bookSlot";
 import Manageprofile from "./components/owner/manageprofile";
 import BrowseSlot from "./components/user/browseSlot";
 import SlotDetails from "./components/user/slotDetails";
 import Home from "./components/main/home";
+import PricingPlan from "./components/main/pricingPlan";
 
 function App() {
   return (
