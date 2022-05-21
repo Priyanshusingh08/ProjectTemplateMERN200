@@ -83,7 +83,7 @@ const BrowseSlot = () => {
                       variant="contained"
                       classNameName="w-100"
                       color="primary"
-                      onClick={(e) => navigate("/main/bookslot")}
+                      onClick={(e) => navigate("/user/bookslot")}
                     >
                       Book Now
                     </Button>

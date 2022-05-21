@@ -24,8 +24,8 @@ import { useEffect, useState } from "react";
 
 const pages = [
   {
-    name: "Browse Slot",
-    link: "/main/browseslot",
+    name: "Owner Signup",
+    link: "/main/ownersignup",
   },
   {
     name: "Owner Login",
@@ -106,7 +106,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: '#000039' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

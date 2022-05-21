@@ -228,7 +228,7 @@ const ManagePlan = () => {
   const displayData = () => {
     if (!loading) {
       return floristArray.map(
-        ({ type, city, address, price, features, file, createdAt, _id }, i) => (
+        ({ type,  price, title, total, createdAt, _id }, i) => (
           <div className="container ">
             <Accordion
               key={_id}
@@ -243,21 +243,23 @@ const ManagePlan = () => {
                 <h4>{type}</h4>
               </AccordionSummary>
               <AccordionDetails className="p-3 mb-2 bg-info text-white">
-                <Grid container spacing={5}>
+                <Grid container spacing={1}>
                   <Grid item md={3} sx={12}>
-                    <img
-                      src={url + "/uploads/" + file}
-                      alt=""
-                      className="img-fluid"
-                    />
+                  <h4 className="text-black">Title</h4>
+                   <h5>{title}</h5>
                   </Grid>
 
                   <Grid item md={3} sx={12}>
-                    <h4>Details</h4>
+                    <h4 className="text-black">Details</h4>
                     <h5>{price}</h5>
-                    <h5>{features}</h5>
-                    <h5>{city}</h5>
-                    <h5>{address}</h5>
+                   
+                   
+                  </Grid>
+
+                  <Grid item md={3} sx={12}>
+                    <h4 className="text-black">Slots Available</h4>
+                    <h5>{total}</h5>
+                    
                   </Grid>
 
                   <Grid item md={3} sx={12}>
@@ -271,19 +273,7 @@ const ManagePlan = () => {
                       >
                         <DeleteRounded />
                       </Fab>
-                      <Tooltip title="Update News Article">
-                        <Fab
-                          size="medium"
-                          color="success"
-                          onClick={(e) => {
-                            // setUpdateFormdata(news);
-                            setShowUpdateForm(true);
-                          }}
-                          aria-label="add"
-                        >
-                          <Edit size="small" />
-                        </Fab>
-                      </Tooltip>
+
                       <Tooltip title="Update News Article">
                         <Fab
                           size="medium"

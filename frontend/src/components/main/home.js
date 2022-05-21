@@ -31,111 +31,52 @@ const Home = () => {
   return (
     <div>
       
-      <div className="d-flex h-100 text-center text-white bg-dark">
-        <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-          <header className="mb-auto">
-            <div>
-              <h3 className="float-md-start mb-0"></h3>
-            </div>
-          </header>
-
-          <main className="px-3">
-            <h1>Cover your page.</h1>
-            <p className="lead container ">
-              Cover is a one-page template for building simple and beautiful
-              home pages. Download, edit the text, and add your own fullscreen
-              background photo to make it your own.
-            </p>
-            <p className="lead">
-              <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  onClick={(e) => navigate("/user/browseslot")}
-                >
-                  Browse
-                </Button>
-              </div>
-            </p>
-          </main>
-        </div>
-      </div>
-
-      <div className="d-flex justify-content-center " style={{backgroundColor: "#FFD700"}}>
-      <h2 className="justify-content-center">Plan Details</h2>
-      </div>
-
+      <header id="home" class="header">
+        <div class="overlay"></div>
+        <div class="header-content">
+            <p>Adorning your vehicle need</p>
+            <h6>Pick And Park</h6> 
+            <Button
+                                type="submit"
+                                variant="contained"
+                                
+                                color="success"
+                                onClick={(e) => navigate("/main/login")}
+                              >
+                                Login
+                              </Button>
+        </div>      
+    </header>
+    
+    
+    <section id="about">
+    
+        <div class="container">
+            
+            <div class="about-wrapper">
+                <div class="after"><h1>About Us</h1></div>
+                <div class="content">
+                    <h5 class="title mb-3">Lorem ipsum dolor sit.</h5>
+                
+                    <div class="row">
+                        <div class="col">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda soluta nisi cumque nostrum porro repellat iusto neque quos asperiores, aliquam.</p>
+                            <p><b>Adipisicing elit. Modi similique  iusto voluptatibus sint.</b></p>                        
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dignissimos modi molestias voluptas possimus perferendis saepe soluta accusantium, obcaecati neque quas ducimus, alias labore nesciunt atque ab voluptatibus quis! Molestiae dicta reprehenderit, quod laborum voluptatem laboriosam! Sapiente vel, fugiat voluptates.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, quis!</p>
+                        </div>
+                        <div class="col">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda soluta nisi cumque nostrum porro repellat iusto neque quos asperiores, aliquam.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, quis!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dignissimos modi molestias voluptas possimus perferendis saepe soluta accusantium, obcaecati neque quas ducimus, alias labore nesciunt atque ab voluptatibus quis! Molestiae dicta reprehenderit, quod laborum voluptatem laboriosam! Sapiente vel, fugiat voluptates.</p>
+                        </div>
+                    </div>                  
+                    
+                </div>
+            </div>       
+        </div>  
+     </section>
      
-
-      <Stack direction="row" spacing={{ xs: 1, sm: 2, md: 4 }} className="d-flex justify-content-center mt-2">
-        
-        <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image="https://img.staticmb.com/mbcontent//images/uploads/2021/12/underground-parking-cars-white-colors.jpg"
-        alt="parking
-        "
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          1 Month
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" variant="contained" onClick={(e) => navigate("/owner/ownersignup")}>Signup</Button>
-    
-      </CardActions>
-    </Card>
-      
-         <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2018/01/10/640599-car-parking.jpg"
-        alt="parking"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          6 Months
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-      <Button size="small" variant="outl" onClick={(e) => navigate("/owner/ownersignup")}>Signup</Button>
-    
-      </CardActions>
-    </Card>
-        <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image="https://thumbs.dreamstime.com/b/underground-car-parking-lot-building-43173657.jpg"
-        alt="parking"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          1 Year
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" variant="contained" onClick={(e) => navigate("/owner/ownersignup")}>Signup</Button>
-      </CardActions>
-    </Card>
-      </Stack>
-
    
     </div>
   );

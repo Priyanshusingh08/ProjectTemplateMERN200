@@ -46,7 +46,7 @@ const OwnerSignup = () => {
     password: Yup.string().min(3, "Too Short!!").required("Password Required"),
   });
   return (
-    <div>
+    <div className="ownersignup">
       <section className="vh-100">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -56,7 +56,7 @@ const OwnerSignup = () => {
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                        Sign up
+                        Owner Signup
                       </p>
 
                       <Formik

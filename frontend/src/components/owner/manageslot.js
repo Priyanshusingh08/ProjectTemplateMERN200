@@ -46,7 +46,9 @@ const ManageSlot = () => {
           title: "Success",
           text: "Added successfully",
         });
+        
       });
+      
   };
 
   return (
@@ -135,6 +137,7 @@ const ManageSlot = () => {
                                 variant="contained"
                                 className="w-100"
                                 color="primary"
+                          
                               >
                                 Add Slot
                               </Button>

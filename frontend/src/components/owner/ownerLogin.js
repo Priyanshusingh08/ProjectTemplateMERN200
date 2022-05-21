@@ -37,7 +37,7 @@ const OwnerLogin = () => {
         console.log("there");
         res.json().then((data) => {
           sessionStorage.setItem("owner", JSON.stringify(data));
-          navigate("/owner/manageprofile");
+          navigate("/owner/manageplan");
         });
       } else if (res.status === 400) {
         Swal.fire({
@@ -52,7 +52,7 @@ const OwnerLogin = () => {
     <div className="login-back">
       <Container maxWidth="xs" sx={{ display: "flex", alignItems: "center" }}>
         <Card className="w-100">
-          <p className="text-center mt-5 mb-5 h3">Login</p>
+          <p className="text-center mt-5 mb-5 h3">Owner Login</p>
           <CardContent>
             <Formik initialValues={loginForm} onSubmit={loginSubmit}>
               {({ values, handleChange, handleSubmit }) => (

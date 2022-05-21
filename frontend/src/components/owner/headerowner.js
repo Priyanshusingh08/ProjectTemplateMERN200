@@ -72,7 +72,7 @@ const Headerowner = () => {
     {
       name: "Profile",
       icon: <AccountCircle />,
-      link: "/user/profile",
+      link: "/owner/manageprofile",
     },
     {
       name: "Manage Plan",
