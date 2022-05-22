@@ -19,6 +19,8 @@ import SlotDetails from "./components/user/slotDetails";
 import Home from "./components/main/home";
 import PricingPlan from "./components/main/pricingPlan";
 import BookSlot from "./components/user/bookslot";
+import Demosignup from "./components/owner/demosignup";
+import Demologin from "./components/owner/demologin";
 
 
 
@@ -37,6 +39,8 @@ function App() {
           <Route element={<Home />} path="home" />
           <Route element={<OwnerSignup />} path="ownersignup" />
           <Route element={<OwnerLogin />} path="ownerlogin" />
+          <Route element={<Demosignup />} path="demosignup" />
+          <Route element={<Demologin />} path="demologin" />
   
         </Route>
 

@@ -84,6 +84,11 @@ const Headerowner = () => {
         icon: <Subscriptions />,
         link: "/owner/manageslot",
       },
+      {
+        name: "Plans",
+        icon: <Subscriptions />,
+        link: "/owner/pricingplan",
+      },
     {
       name: "Logout",
       icon: <AccountCircle />,

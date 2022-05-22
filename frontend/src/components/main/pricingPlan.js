@@ -110,7 +110,8 @@ const PricingPlan = () => {
   };
 
   return (
-    <div className="container mb-5 mt-5">
+    <div className="container mb-5 mt-5" style={{background: '#f0f8ff'}}>
+      <div className="text-center my-4"> <h2>Pricing plan</h2> </div>
       <div className="pricing card-deck flex-column flex-md-row mb-3">
         {showPlans()}
       </div>

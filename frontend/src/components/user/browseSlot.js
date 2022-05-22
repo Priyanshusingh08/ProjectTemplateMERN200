@@ -50,9 +50,10 @@ const BrowseSlot = () => {
             <div className="card-body">
               <div className="d-flex justify-content-between">
                 <p className="small">
-                  <a href="#!" className="text-muted">
+                  <h5 href="#!" >
+                    <h4>Type</h4>
                     {type}
-                  </a>
+                  </h5>
                 </p>
                 {/* <p className="small text-danger">
                     <s>$1099</s>
@@ -61,9 +62,11 @@ const BrowseSlot = () => {
 
               <div className="d-flex justify-content-between">
                 <p className="small">
-                  <a href="#!" className="text-muted">
+                  
+                  <h4>Location</h4>
+                  <h5>
                     {location}
-                  </a>
+                  </h5>
                 </p>
                 {/* <p className="small text-danger">
                     <s>$1099</s>
@@ -71,6 +74,7 @@ const BrowseSlot = () => {
               </div>
 
               <div className="d-flex justify-content-between mb-3">
+              <h4>Price</h4>
                 <h5 className="mb-0">{price}</h5>
                 {/* <h5 className="text-dark mb-0">FREE</h5> */}
               </div>

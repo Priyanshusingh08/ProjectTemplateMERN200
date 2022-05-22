@@ -74,9 +74,14 @@ const Header = () => {
       link: "/user/profile",
     },
     {
-      name: "Manage Vlogs",
+      name: "Browse Slots",
       icon: <Subscriptions />,
-      link: "/owner/manageplan",
+      link: "/user/browseslot",
+    },
+    {
+      name: "Book Slots",
+      icon: <Subscriptions />,
+      link: "/user/bookslot",
     },
     {
       name: "Logout",

@@ -135,11 +135,23 @@ const ManageSlot = () => {
                                 fullWidth
                                 type="submit"
                                 variant="contained"
-                                className="w-100"
+                                className="w-100 ml-4"
                                 color="primary"
                           
                               >
                                 Add Slot
+                              </Button>
+                              
+                              <Button
+                                fullWidth
+                                
+                                variant="outlined"
+                                className="w-100 ml-4"
+                                color="primary"
+                                onClick={(e) => navigate("/owner/manageplan")}
+                          
+                              >
+                                View 
                               </Button>
                             </div>
                           </form>
