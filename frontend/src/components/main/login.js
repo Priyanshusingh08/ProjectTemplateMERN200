@@ -35,7 +35,7 @@ const Login = () => {
 
         res.json().then((data) => {
           sessionStorage.setItem("user", JSON.stringify(data));
-          navigate("/user/browseslot");
+          navigate("/main/browseslot");
         });
   
       } else if (res.status === 400) {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+
 import Headerowner from "./headerowner";
 
 
@@ -8,6 +9,7 @@ const Owner = () => {
     <div>
       <Headerowner/>
       <Outlet />
+
     </div>
   );
 };

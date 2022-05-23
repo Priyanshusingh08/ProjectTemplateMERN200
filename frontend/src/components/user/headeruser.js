@@ -64,7 +64,7 @@ const Header = () => {
 
   const logout = () => {
     setAnchorElUser(null);
-    navigate("/login");
+    navigate("/main/login");
   };
 
   const userMenu = [
@@ -106,7 +106,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: '#000039' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

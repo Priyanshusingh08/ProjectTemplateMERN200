@@ -47,7 +47,7 @@ const BookSlot = () => {
           Swal.fire({
             icon: "success",
             title: "Success",
-            text: "Booked successfully",
+            text: "Added successfully",
           });
           
         });

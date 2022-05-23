@@ -36,7 +36,7 @@ const BrowseSlot = () => {
 
   const displayData = () => {
     if (!loading) {
-      return datalist.map(({ type, location, price, image, _id, owner }) => (
+      return datalist.map(({ type, title, price,total, image, _id, owner }) => (
         <div key={_id} className="col-md-12 col-lg-4 mb-4 mb-lg-0">
           <div className="card mt-5">
             <NavLink classNameName="ripple" to={"/main/manageslot/" + _id}>
@@ -49,9 +49,10 @@ const BrowseSlot = () => {
 
             <div className="card-body">
               <div className="d-flex justify-content-between">
+              <h5 className="float-right h6">Type</h5>
                 <p className="small">
-                  <h5 href="#!" >
-                    <h4>Type</h4>
+                  
+                  <h5 className="h6">
                     {type}
                   </h5>
                 </p>
@@ -61,11 +62,12 @@ const BrowseSlot = () => {
               </div>
 
               <div className="d-flex justify-content-between">
+              <h5 className="float-right h6">Title</h5>
                 <p className="small">
                   
-                  <h4>Location</h4>
-                  <h5>
-                    {location}
+                  
+                  <h5 className="h6">
+                    {title}
                   </h5>
                 </p>
                 {/* <p className="small text-danger">
@@ -74,8 +76,12 @@ const BrowseSlot = () => {
               </div>
 
               <div className="d-flex justify-content-between mb-3">
-              <h4>Price</h4>
-                <h5 className="mb-0">{price}</h5>
+              <h5 className="float-right h6">Price</h5>
+              <p className="small">
+        
+                <h5 className="mb-0 h6">{price}</h5>
+                </p>
+                
                 {/* <h5 className="text-dark mb-0">FREE</h5> */}
               </div>
 

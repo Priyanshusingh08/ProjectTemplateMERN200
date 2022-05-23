@@ -132,6 +132,7 @@ const ManagePlan = () => {
                           ),
                         }}
                       />
+                      
 
                       <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label1">
@@ -230,35 +231,35 @@ const ManagePlan = () => {
       return floristArray.map(
         ({ type,  price, title, total, createdAt, _id }, i) => (
           <div className="container ">
-            <Accordion
+            <Accordion  style={{background:"red"}} 
               key={_id}
-              className="shadow p-3 rounded  p-3 mb-2 bg-primary text-white"
+              className="shadow p-3 rounded  p-3 mb-1 bg-primary text-white"
             >
-              <AccordionSummary
+              <AccordionSummary 
                 className="p-3 mb-2 bg-primary text-white  "
                 expandIcon={<ExpandMore />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <h4>{type}</h4>
+                <h4 className="h6">{title}</h4>
               </AccordionSummary>
-              <AccordionDetails className="p-3 mb-2 bg-info text-white">
+              <AccordionDetails className="p-3 mb-2 bg-info text-white "  >
                 <Grid container spacing={1}>
                   <Grid item md={3} sx={12}>
-                  <h4 className="text-black">Title</h4>
-                   <h5>{title}</h5>
+                  <h4 className="text-black h5">Type</h4>
+                   <h5 className="h6">{type}</h5>
                   </Grid>
 
                   <Grid item md={3} sx={12}>
-                    <h4 className="text-black">Details</h4>
-                    <h5>{price}</h5>
+                    <h4 className="text-black h5">Price</h4>
+                    <h5 className="h6">{price}</h5>
                    
                    
                   </Grid>
 
                   <Grid item md={3} sx={12}>
-                    <h4 className="text-black">Slots Available</h4>
-                    <h5>{total}</h5>
+                    <h4 className="text-black h5">Slots Available</h4>
+                    <h5 className="h6">{total}</h5>
                     
                   </Grid>
 
@@ -299,11 +300,11 @@ const ManagePlan = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" >
       <h1>
         Manage Plan{" "}
         <Button
-          className="mt-2 float-right"
+          className="mt-3 float-right "
           type="submit"
           variant="contained"
           position="right"

@@ -21,6 +21,7 @@ import PricingPlan from "./components/main/pricingPlan";
 import BookSlot from "./components/user/bookslot";
 import Demosignup from "./components/owner/demosignup";
 import Demologin from "./components/owner/demologin";
+import BookingDetails from "./components/user/bookingDetails";
 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route element={<Signup />} path="signup" />
           <Route element={<Login />} path="login" />
           <Route element={<Home />} path="home" />
+          <Route element={<BrowseSlot />} path="browseslot" />
           <Route element={<OwnerSignup />} path="ownersignup" />
           <Route element={<OwnerLogin />} path="ownerlogin" />
           <Route element={<Demosignup />} path="demosignup" />
@@ -52,9 +54,10 @@ function App() {
         </Route>
 
         <Route element={<User />} path="user">
-          <Route element={<BrowseSlot />} path="browseslot" />
+          
           <Route element={<SlotDetails />} path="slotdetails" />
           <Route element={<BookSlot />} path="bookslot" />
+          <Route element={<BookingDetails />} path="bookingdetails" />
         
         </Route>
 

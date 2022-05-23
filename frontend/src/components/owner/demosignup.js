@@ -64,7 +64,7 @@ const Demosignup = () => {
         md={7}
         sx={{
           backgroundImage:
-            "url(https://media.wired.com/photos/5ae8d23aa27165432758090c/master/w_2400,h_1800,c_limit/AstonMartinRoof-Inline.jpg)",
+            "url(https://www.parkingforme.com/blog/wp-content/uploads/2018/06/importance-of-car-parking-service.jpeg)",
           backgroundRepeat: "no-repeat",
           backgroundColor: (t) =>
             t.palette.mode === "light"
