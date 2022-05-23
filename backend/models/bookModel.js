@@ -1,13 +1,13 @@
 const mongoose = require("../connection");
 
 const schema = new mongoose.Schema({
-  City: String,
-  Type: String,
-  Carnumber: String,
-  Checkin: String,
-  Checkout: String,
-  Email: String,
-  Phone: String,
+  slot: { type: mongoose.Types.ObjectId, ref: "slot" },
+  user: { type: mongoose.Types.ObjectId, ref: "users" },
+  carnumber: String,
+  checkin: String,
+  checkout: String,
+  email: String,
+  phone: String,
   createAt: { type: Date, default: new Date() },
 });
 

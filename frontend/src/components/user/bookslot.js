@@ -21,14 +21,13 @@ const BookSlot = () => {
   );
 
   const userForm = {
-    City: "",
-    Type: "",
-    Carnumber: "",
-    Checkin: "",
-    Checkout: "",
-    Email: "",
-    Phone: "",
+    carnumber: "",
+    checkin: "",
+    checkout: "",
+    email: "",
+    phone: "",
     owner: currentUser._id,
+    slot: slotid,
     createAt: new Date(),
   };
 
@@ -74,20 +73,115 @@ const BookSlot = () => {
       return (
         <div className="card">
           <div className="card-body">
-            <p>
+            <h3>
               <span className="fw-bold">Parking Name : </span>
               {slotData.title}
-            </p>
-            <p>
-              <span className="fw-bold">Parking Name : </span>
-              {slotData.title}
-            </p>
-            <p>
-              <span className="fw-bold">Parking Name : </span>
-              {slotData.title}
-            </p>
+            </h3>
+            <h3>
+              <span className="fw-bold">Parking Type : </span>
+              {slotData.type}
+            </h3>
+            <h3>
+              <span className="fw-bold">Slots Available : </span>
+              {slotData.total}
+            </h3>
           </div>
         </div>
+      );
+    }
+  };
+
+  const displayForm = () => {
+    if (!loading) {
+      return (
+        <Formik initialValues={userForm} onSubmit={userSubmit}>
+          {({ values, handleSubmit, handleChange, errors }) => (
+            <form onSubmit={handleSubmit} className="mt-5">
+              <div class="row">
+                <div class="col-md">
+                  <div class="form-group">
+                    <TextField
+                      fullWidth
+                      variant="outlined"
+                      type="text"
+                      label="Car Number"
+                      id="carnumber"
+                      value={values.carnumber}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <TextField
+                      fullWidth
+                      variant="outlined"
+                      type="text"
+                      label="Check In"
+                      id="checkin"
+                      value={values.checkin}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <TextField
+                      fullWidth
+                      variant="outlined"
+                      type="text"
+                      label="Check Out"
+                      id="checkout"
+                      value={values.checkout}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <TextField
+                      fullWidth
+                      variant="outlined"
+                      type="text"
+                      label="Email"
+                      id="email"
+                      value={values.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <TextField
+                      fullWidth
+                      variant="outlined"
+                      type="text"
+                      label="phone"
+                      id="phone"
+                      value={values.phone}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-btn">
+                <Button
+                  fullWidth
+                  type="submit"
+                  variant="contained"
+                  className="w-100"
+                  color="primary"
+                >
+                  Book
+                </Button>
+              </div>
+            </form>
+          )}
+        </Formik>
       );
     }
   };
@@ -102,118 +196,7 @@ const BookSlot = () => {
                 <h1 className="mt-4">Book Slot Now</h1>
                 {showSlotDetails()}
               </div>
-              <Formik initialValues={userForm} onSubmit={userSubmit}>
-                {({ values, handleSubmit, handleChange, errors }) => (
-                  <form onSubmit={handleSubmit}>
-                    <div class="form-group">
-                      <TextField
-                        fullWidth
-                        variant="outlined"
-                        type="text"
-                        label="City"
-                        id="city"
-                        value={values.city}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <TextField
-                            fullWidth
-                            variant="outlined"
-                            type="text"
-                            label="Type"
-                            id="type"
-                            value={values.type}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <TextField
-                            fullWidth
-                            variant="outlined"
-                            type="text"
-                            label="Car Number"
-                            id="carnumber"
-                            value={values.carnumber}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <TextField
-                            fullWidth
-                            variant="outlined"
-                            type="text"
-                            label="Check In"
-                            id="checkin"
-                            value={values.checkin}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <TextField
-                            fullWidth
-                            variant="outlined"
-                            type="text"
-                            label="Check Out"
-                            id="checkout"
-                            value={values.checkout}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <TextField
-                            fullWidth
-                            variant="outlined"
-                            type="text"
-                            label="Email"
-                            id="email"
-                            value={values.email}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <TextField
-                            fullWidth
-                            variant="outlined"
-                            type="text"
-                            label="phone"
-                            id="phone"
-                            value={values.phone}
-                            onChange={handleChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-btn">
-                      <Button
-                        fullWidth
-                        type="submit"
-                        variant="contained"
-                        className="w-100"
-                        color="primary"
-                      >
-                        Book
-                      </Button>
-                    </div>
-                  </form>
-                )}
-              </Formik>
+              {displayForm()}
             </div>
           </div>
         </div>

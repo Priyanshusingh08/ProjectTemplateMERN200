@@ -47,7 +47,7 @@ router.delete("/delete/:id", (req, res) => {
 });
 
 router.get("/getbyid/:id", (req, res) => {
-  Model.findById(req.params.id)
+  Model.findById({ user: req.params.id })
     .populate("owner")
     .then((data) => {
       res.status(200).json(data);

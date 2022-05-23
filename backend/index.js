@@ -3,6 +3,7 @@ const userRouter = require("./routers/userRouter");
 const utilRouter = require("./routers/util");
 const slotRouter = require("./routers/slotRouter");
 const ownerRouter = require("./routers/ownerRouter");
+const bookRouter = require("./routers/bookRouter");
 const cors = require("cors");
 
 const app = express();
@@ -14,6 +15,7 @@ app.use("/user", userRouter);
 app.use("/util", utilRouter);
 app.use("/slot", slotRouter);
 app.use("/owner", ownerRouter);
+app.use("/book", bookRouter);
 app.use(express.static("./static"));
 app.get("/", (req, res) => {
   res.send("you got a response");
