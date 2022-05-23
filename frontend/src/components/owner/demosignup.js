@@ -92,93 +92,89 @@ const Demosignup = () => {
             Sign in
           </Typography>
           <Formik
-              initialValues={userForm}
-              onSubmit={userSubmit}
-              validationSchema={myValidation}
-            >
-              {({ values, handleSubmit, handleChange, errors }) => (
-                <form onSubmit={handleSubmit}>
-          <Box component="form"   sx={{ mt: 1 }}>
-        
-                  <TextField
-                    fullWidth
-                    variant="outlined"
-                    type="text"
-                    label="User name"
-                    id="username"
-                    value={values.username}
-                    onChange={handleChange}
-                    helperText={errors.username}
-                    error={Boolean(errors.username)}
-                  />
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Email Address"
-                    value={values.email}
-                    onChange={handleChange}
-                    helperText={errors.email}
-                    error={Boolean(errors.email)}
-                  />
+            initialValues={userForm}
+            onSubmit={userSubmit}
+            validationSchema={myValidation}
+          >
+            {({ values, handleSubmit, handleChange, errors }) => (
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  type="text"
+                  label="User name"
+                  id="username"
+                  value={values.username}
+                  onChange={handleChange}
+                  helperText={errors.username}
+                  error={Boolean(errors.username)}
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  value={values.email}
+                  onChange={handleChange}
+                  helperText={errors.email}
+                  error={Boolean(errors.email)}
+                />
 
-                  <Grid container>
-                    <Grid item xs>
-                      <TextField
-                        margin="normal"
-                        required
-                        id="city"
-                        label="City"
-                        value={values.city}
-                        onChange={handleChange}
-                      />
-                    </Grid>
-                    <Grid item>
-                      <TextField
-                        margin="normal"
-                        required
-                        id="phone"
-                        label="Phone"
-                        value={values.phone}
-                        onChange={handleChange}
-                      />
-                    </Grid>
+                <Grid container>
+                  <Grid item xs>
+                    <TextField
+                      margin="normal"
+                      required
+                      id="city"
+                      label="City"
+                      value={values.city}
+                      onChange={handleChange}
+                    />
                   </Grid>
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="address"
-                    label="Address"
-                    value={values.address}
-                    onChange={handleChange}
-                  />
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    value={values.password}
-                    onChange={handleChange}
-                  />
+                  <Grid item>
+                    <TextField
+                      margin="normal"
+                      required
+                      id="phone"
+                      label="Phone"
+                      value={values.phone}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                </Grid>
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="address"
+                  label="Address"
+                  value={values.address}
+                  onChange={handleChange}
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  value={values.password}
+                  onChange={handleChange}
+                />
 
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                  >
-                    Sign In
-                  </Button>
-               
-          </Box>
-           </form>
-           )}
-         </Formik>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Sign In
+                </Button>
+              </form>
+            )}
+          </Formik>
         </Box>
       </Grid>
     </Grid>
