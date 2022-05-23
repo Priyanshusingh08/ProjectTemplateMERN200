@@ -36,72 +36,76 @@ const BrowseSlot = () => {
 
   const displayData = () => {
     if (!loading) {
-      return datalist.map(({ type, location, price, image, _id, owner }) => (
-        <div key={_id} className="col-md-12 col-lg-4 mb-4 mb-lg-0">
-          <div className="card mt-5">
-            <NavLink classNameName="ripple" to={"/main/manageslot/" + _id}>
-              <img
-                src={url + "/uploads/" + owner.image}
-                className="card-img-top"
-                alt="Laptop"
-              />
-            </NavLink>
+      return datalist.map(
+        ({ type, title, price, total, image, _id, owner }) => (
+          <div key={_id} className="col-md-12 col-lg-4 mb-4 mb-lg-0">
+            <div className="card mt-5">
+              <NavLink classNameName="ripple" to={"/main/manageslot/" + _id}>
+                <img
+                  src={url + "/uploads/" + owner.image}
+                  className="card-img-top"
+                  alt="Laptop"
+                />
+              </NavLink>
 
-            <div className="card-body">
-              <div className="d-flex justify-content-between">
-                <p className="small">
-                  <h5 href="#!">
-                    <h4>Type</h4>
-                    {type}
-                  </h5>
-                </p>
-                {/* <p className="small text-danger">
+              <div className="card-body">
+                <div className="d-flex justify-content-between">
+                  <h5 className="float-right h6">Type</h5>
+                  <p className="small">
+                    <h5 href="#!">
+                      <h4>Type</h4>
+                      {type}
+                    </h5>
+                  </p>
+                  {/* <p className="small text-danger">
                     <s>$1099</s>
                   </p> */}
-              </div>
+                </div>
 
-              <div className="d-flex justify-content-between">
-                <p className="small">
-                  <h4>Location</h4>
-                  <h5>{location}</h5>
-                </p>
-                {/* <p className="small text-danger">
+                <div className="d-flex justify-content-between">
+                  <h5 className="float-right h6">Title</h5>
+                  <p className="small">
+                    <h4>Location</h4>
+                    {/* <h5>{location}</h5> */}
+                  </p>
+                  {/* <p className="small text-danger">
                     <s>$1099</s>
                   </p> */}
-              </div>
+                </div>
 
-              <div className="d-flex justify-content-between mb-3">
-                <h4>Price</h4>
-                <h5 className="mb-0">{price}</h5>
-                {/* <h5 className="text-dark mb-0">FREE</h5> */}
-              </div>
+                <div className="d-flex justify-content-between mb-3">
+                  <h4>Price</h4>
+                  <h5 className="mb-0">{price}</h5>
+                  {/* <h5 className="text-dark mb-0">FREE</h5> */}
+                </div>
 
-              <div className="d-flex justify-content-between mb-2">
-                <p className="text-muted mb-0">
-                  <span className="fw-bold">
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      classNameName="w-100"
-                      color="primary"
-                      onClick={(e) => navigate("/user/bookslot/" + _id)}
-                    >
-                      Book Now
-                    </Button>
-                  </span>
-                </p>
-                <div className="ms-auto text-warning">
-                  <i className="fa fa-star"></i>
-                  <i className="fa fa-star"></i>
-                  <i className="fa fa-star"></i>
-                  <i className="fa fa-star"></i>
-                  <i className="fa fa-star"></i>
+                <div className="d-flex justify-content-between mb-2">
+                  <p className="text-muted mb-0">
+                    <span className="fw-bold">
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        classNameName="w-100"
+                        color="primary"
+                        onClick={(e) => navigate("/user/bookslot/" + _id)}
+                      >
+                        Book Now
+                      </Button>
+                    </span>
+                  </p>
+                  <div className="ms-auto text-warning">
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ));
+        )
+      );
     }
   };
 

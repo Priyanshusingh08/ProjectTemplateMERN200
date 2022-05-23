@@ -25,7 +25,7 @@ import { useEffect, useState } from "react";
 const pages = [
   {
     name: "Browse Slot",
-    link: "/user/browseslot",
+    link: "/main/browseslot",
   },
 ];
 
@@ -112,7 +112,7 @@ const Headerowner = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: '#000039' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

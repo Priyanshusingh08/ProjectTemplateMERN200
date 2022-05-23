@@ -52,12 +52,12 @@ const ManageSlot = () => {
   };
 
   return (
-    <div>
-      <section className="vh-100">
+    <div >
+      <section className="vh-100" style={{backgroundImage: `url(${"https://wallpaperaccess.com/full/1236489.jpg"})`}}>
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11">
-              <div className="card text-black" style={{ borderRadius: "25px" }}>
+              <div className="card text-black " style={{ borderRadius: "25px", background:"#e6e6fa" }}>
                 <div className="card-body p-md-5">
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -71,7 +71,7 @@ const ManageSlot = () => {
                             onSubmit={handleSubmit}
                             className="mx-1 mx-md-4"
                           >
-                            <div className="d-flex flex-row align-items-center mb-4">
+                            <div className="d-flex flex-row align-items-center mb-2">
                               <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
                                 <TextField
@@ -86,7 +86,7 @@ const ManageSlot = () => {
                               </div>
                             </div>
                             <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                              <i className="fas fa-car fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
                                 <TextField
                                   fullWidth
@@ -101,7 +101,7 @@ const ManageSlot = () => {
                             </div>
 
                             <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                              <i className="fas fa-dollar fa-lg me-3 fa-fw"></i>
                               <div className="form-outline flex-fill mb-0">
                                 <TextField
                                   fullWidth
@@ -116,7 +116,9 @@ const ManageSlot = () => {
                             </div>
 
                             <div className="d-flex flex-row align-items-center mb-4">
-                              <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+                              <i className="fas fa-check fa-lg me-3 fa-fw">
+                                
+                              </i>
                               <div className="form-outline flex-fill mb-0">
                                 <TextField
                                   fullWidth

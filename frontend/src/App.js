@@ -23,6 +23,7 @@ import Demosignup from "./components/owner/demosignup";
 import Demologin from "./components/owner/demologin";
 import OwnerAuthorisor from "./components/ownerAuth";
 import Authorisor from "./components/authenticator";
+import BookingDetails from "./components/user/bookingDetails";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route element={<Signup />} path="signup" />
           <Route element={<Login />} path="login" />
           <Route element={<Home />} path="home" />
+          <Route element={<BrowseSlot />} path="browseslot" />
           <Route element={<OwnerSignup />} path="ownersignup" />
           <Route element={<OwnerLogin />} path="ownerlogin" />
           <Route element={<Demosignup />} path="demosignup" />
