@@ -21,8 +21,8 @@ import PricingPlan from "./components/main/pricingPlan";
 import BookSlot from "./components/user/bookslot";
 import Demosignup from "./components/owner/demosignup";
 import Demologin from "./components/owner/demologin";
-
-
+import OwnerAuthorisor from "./components/ownerAuth";
+import Authorisor from "./components/authenticator";
 
 function App() {
   return (
@@ -41,21 +41,33 @@ function App() {
           <Route element={<OwnerLogin />} path="ownerlogin" />
           <Route element={<Demosignup />} path="demosignup" />
           <Route element={<Demologin />} path="demologin" />
-  
+          <Route element={<BrowseSlot />} path="browseslot" />
         </Route>
 
-        <Route element={<Owner />} path="/owner">
+        <Route
+          element={
+            <OwnerAuthorisor>
+              <Owner />
+            </OwnerAuthorisor>
+          }
+          path="/owner"
+        >
           <Route element={<ManagePlan />} path="manageplan" />
           <Route element={<PricingPlan />} path="pricingplan" />
           <Route element={<ManageSlot />} path="manageslot" />
           <Route element={<Manageprofile />} path="manageprofile" />
         </Route>
 
-        <Route element={<User />} path="user">
-          <Route element={<BrowseSlot />} path="browseslot" />
+        <Route
+          element={
+            <Authorisor>
+              <User />
+            </Authorisor>
+          }
+          path="user"
+        >
           <Route element={<SlotDetails />} path="slotdetails" />
-          <Route element={<BookSlot />} path="bookslot" />
-        
+          <Route element={<BookSlot />} path="bookslot/:slotid" />
         </Route>
 
         <Route element={<Navigate to="/main/home" />} path="/" />

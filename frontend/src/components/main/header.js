@@ -31,6 +31,10 @@ const pages = [
     name: "Owner Login",
     link: "/main/ownerlogin",
   },
+  {
+    name: "Browse Slot",
+    link: "/main/browseslot",
+  },
 ];
 
 const guestUser = [
@@ -106,7 +110,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" style={{ background: '#000039' }}>
+    <AppBar position="static" style={{ background: "#000039" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

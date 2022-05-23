@@ -147,6 +147,19 @@ const Manageprofile = () => {
                               fullWidth
                               variant="outlined"
                               type="text"
+                              label="Parking Lot Title"
+                              id="title"
+                              value={values.title}
+                              onChange={handleChange}
+                            />
+                          </div>
+                        </div>
+                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                          <div className="form-group">
+                            <TextField
+                              fullWidth
+                              variant="outlined"
+                              type="text"
                               label="Username"
                               id="username"
                               value={values.username}

@@ -19,7 +19,6 @@ const Signup = () => {
   const userSubmit = (formdata) => {
     console.log(formdata);
 
-    fetch(url + "/user/add");
     fetch(url + "/user/add", {
       method: "POST",
       body: JSON.stringify(formdata),
@@ -35,6 +34,7 @@ const Signup = () => {
           title: "Success",
           text: "Registered successfully",
         });
+        navigate("/main/login");
       });
   };
 
@@ -43,8 +43,8 @@ const Signup = () => {
     password: Yup.string().min(3, "Too Short!!").required("Password Required"),
   });
   return (
-    <div className="background-signup" >
-      <section className="vh-100" >
+    <div className="background-signup">
+      <section className="vh-100">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11">
@@ -132,15 +132,12 @@ const Signup = () => {
                               </div>
                             </div>
 
-                         
-
                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                               <Button
                                 type="submit"
                                 variant="contained"
                                 className="w-100"
                                 color="primary"
-                                onClick={(e) => navigate("/main/login")}
                               >
                                 Submit
                               </Button>
